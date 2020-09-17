@@ -60,7 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     @$userNum = $_POST["userNum"];
     if (isset($userNum)) {
         $result = null;
+        //確認是否為4碼數字並且符合答案長度
         $isNum = checkNumFormat($userNum, 4);
+        //若符合規定就執行幾A幾B判斷
         if ($isNum === true) {
             $result = Judg($userNum);
         } else {
