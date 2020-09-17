@@ -2,6 +2,7 @@
 //phpinfo();
 function Judg($num)
 {
+
     //substr string and comparison after output A or B
     $result = "";
     $length = 1;
@@ -41,6 +42,9 @@ function Judg($num)
 }
 function checkNumFormat($num, $count)
 {
+    if(!isset($_SESSION['answer'])){
+        return "Please click the START";
+    }
     //is number ?
     if (!is_numeric($num)) {
         return "Please enter the number";

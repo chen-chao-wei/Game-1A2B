@@ -10,27 +10,40 @@
 
 </head>
 
-<body>
+<body style="background-color: #8bc8c8;">
+    <div class="row">&nbsp;</div>
     <div class="row">
+        
         <div class="col-md-4">
             &nbsp;
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="box-shadow: 1px 1px 3px 3px #f7ede2;border-radius:10px;background-color: #f6bd60;">
+          <div class="row">&nbsp;</div>
+            <div class="">
+                <h1 style="color: #f7ede2;text-shadow: 3px 1px 1px rgb(0, 0, 0);">GAME <button id="start" type="submit" style = "border-radius:10px;"class=" btn-danger" >START</button></h1>
+                <h3 style="color:#f28482;text-shadow: 3px 1px 1px rgb(0, 0, 0);">Name : 1A2B</h3>
+               
+            </div>
             <div>
-                <h1>GAME <p>1A2B</h1>
-                <label for="inputNum">Guess</label>
+                <label for="inputNum" style="color: #84a59d;text-shadow: 1px 1px rgb(0, 0, 0);">Guess</label>
                 <input id="inputNum" class="col-sm-6" type="text">
-                <button class=" btn-success" onclick="judg()">ok</button>
+                <button style = "border-radius:10px;"class=" btn-success" onclick="judg()">submit</button>
             </div>
             <div id="box" class="row">
                 <div class="col-2">
-                    <label>Result</label>
+                    <label style="color: #84a59d;text-shadow: 1px 1px rgb(0, 0, 0);">Result</label>
                 </div>
-                <div class="col-10">
-                    <p id="result"></p>
+                <div class="col-sm-6">
+                    <p style="color: #000000;" id="result"></p>
                 </div>
-
+                
             </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <button id="restart" type="submit" style = "border-radius:10px;"class=" btn-info" >Restart</button>
+                </div>
+                
+            </div >
             <div class="col-md-4">
                 &nbsp;
             </div>
@@ -39,8 +52,19 @@
             <script src="https://code.jquery.com/jquery-3.5.1.js"
                 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
             <script>
-                $.get("answer.php");
-                console.log("11")
+                //restart game & clean input
+                
+               $("#restart").on("click",function(){
+                    $.get("answer.php");
+                    $("#inputNum").val("");
+                    $("#result").text("");
+               })
+               $("#start").on("click",function(){
+                    $.get("answer.php");
+                    alert("START GAME")
+                    $("#inputNum").val("");
+                    $("#result").text("");
+               })
                 function judg() {
                     num = $("#inputNum").val()
                     console.log(num);
